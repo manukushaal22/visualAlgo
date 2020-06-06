@@ -1,0 +1,19 @@
+.borderset {
+    /* border: 1px solid black; */
+    border-spacing: 0px;
+}
+
+.row{
+    height: 10px;
+}
+
+.cell{
+    width: 10px;
+    /* padding-left: 1px; */
+}
+
+.cellselect{
+    background-color: rgb(0, 110, 255);
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}

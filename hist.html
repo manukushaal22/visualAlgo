@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="histcss.css">
+  </head>
+  <body>
+      <button id="click">click</button>
+      <button id="reset">Reset</button>
+      <button id="sorter">Sort</button>
+      <script src="helpers.js"></script>
+    <script>
+        var tot_columns = 90;
+        var tot_rows = 90;
+        var original_list_data = [4, 1, 8, 5, 6, 2, 3, 8, 21, 42]
+        var current_list_data = Array.from(original_list_data)
+
+        $(document).ready(function(){
+            create_table(tot_rows, tot_columns);
+            initialize_table_classes();
+            document.createElement("button")
+            make_histogram(original_list_data);
+
+            $("#sorter").click(() => {
+                bubbleSort(current_list_data);
+            });
+
+            $("#click").click(() => {
+                swap_bars(0, current_list_data.length-1);
+            });
+
+            $("#reset").click(() => {
+                make_histogram(original_list_data);
+                current_list_data = Array.from(original_list_data);
+            });
+        });
+    </script>
+  </body>
+</html>
