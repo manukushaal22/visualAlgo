@@ -7,15 +7,21 @@
       <button id="click">click</button>
       <button id="reset">Reset</button>
       <button id="sorter">Sort</button>
+      <button id="genrandom">Generate New Random Array</button>
+      <br><br>
       <script src="helpers.js"></script>
     <script>
         var tot_columns = 90;
         var tot_rows = 90;
-        var original_list_data = [4, 1, 8, 5, 6, 2, 3, 8, 21, 42]
+        var arr_size = 140;
+        var min_arr_val = 100;
+        var max_arr_val = 1000;
+        var original_list_data = create_random_array(arr_size, min_arr_val, max_arr_val);
         var current_list_data = Array.from(original_list_data)
 
         $(document).ready(function(){
-            create_table(tot_rows, tot_columns);
+            // create_table(tot_rows, tot_columns);
+            create_histogram(original_list_data);
             initialize_table_classes();
             document.createElement("button")
             make_histogram(original_list_data);
@@ -31,6 +37,12 @@
             $("#reset").click(() => {
                 make_histogram(original_list_data);
                 current_list_data = Array.from(original_list_data);
+            });
+
+            $("#genrandom").click(() => {
+                original_list_data = create_random_array(arr_size, min_arr_val, max_arr_val);
+                current_list_data = Array.from(original_list_data);
+                make_histogram(original_list_data);
             });
         });
     </script>
